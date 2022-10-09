@@ -36,7 +36,7 @@ const routes: RouteConfig[] = [
     },
   },
   {
-    path: '/game/:roomNumber/:isOwner?',
+    path: '/game',
     name: 'game',
     component: Game,
     meta: {
@@ -60,7 +60,7 @@ router.beforeEach(async (to, from, next) => {
       console.log(result);
       next();
     } catch (e) {
-      await router.replace({ name: 'login' });
+      await router.replace({ name: 'game' });
     }
   } else {
     next();
